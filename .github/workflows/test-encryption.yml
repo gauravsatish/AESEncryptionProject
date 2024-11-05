@@ -68,7 +68,7 @@ jobs:
 
         output=$(python main.py <<EOF
         2
-        test+message.enc
+        test_message.enc
         secret key
         EOF
         )
