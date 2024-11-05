@@ -1,6 +1,6 @@
 import pickle
 
-from AESImpl import AESImpl
+import AESImpl
 
 
 def encrypt(text, filename="message.txt"):
