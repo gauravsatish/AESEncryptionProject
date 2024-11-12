@@ -4,10 +4,12 @@ import AESImpl
 
 
 def encrypt(text, filename="message.txt"):
-    key = AESImpl.get_hashed_key(input("Enter the key to use for encryption: "))
+    key = input("Enter key to be used for encryption: ")
+    key = AESImpl.get_hashed_key(key)
     enc_text = AESImpl.encrypt(key, text)
 
-    with open(filename[:-4] + ".enc", "wb") as enc_file:  # <filename>.txt ---> <filename>.enc
+    with open(filename[:-4] + ".enc", "wb") as enc_file:  
+        # <filename>.txt ---> <filename>.enc
         pickle.dump(enc_text, enc_file)
 
     print(f"\nThe encrypted file has been stored in {filename[:-4]}.enc")
@@ -49,7 +51,8 @@ def existing_file_decrypt():
         print("The file does not exist. Make sure you have typed the name correctly. For eg: \"message.enc\"")
         exit()
 
-    key = AESImpl.get_hashed_key(input("Enter the key to use for encryption: "))
+    key = input("Enter key to be used for encryption: ")
+    key = AESImpl.get_hashed_key(key)
     text = AESImpl.decrypt(key, enc_text)
 
     print("\n" + text)
